@@ -1,0 +1,26 @@
+[
+  {
+    "id": "p1",
+    "title": "AI for Medicine",
+    "category": "Health",
+    "img": "images/pic_trulli.jpg"
+  },
+  {
+    "id": "p2",
+    "title": "Quantum Computing 101",
+    "category": "Technology",
+    "img": "images/pic_trulli.jpg"
+  },
+  {
+    "id": "p3",
+    "title": "Mental Health & Teens",
+    "category": "Health",
+    "img": "images/pic_trulli.jpg"
+  },
+  {
+    "id": "p4",
+    "title": "Smart Cities Design",
+    "category": "Urban Planning",
+    "img": "images/pic_trulli.jpg"
+  }
+]

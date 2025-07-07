@@ -1,0 +1,23 @@
+[
+    {
+        "id": "s1",
+        "title": "Opening Keynote: The Future of Innovation",
+        "time": "09:00 AM - 10:00 AM",
+        "speaker": "Dr. Alicia Chang",
+        "description": "Join us for a compelling keynote by Dr. Chang exploring how emerging technologies will shape the future of global innovation."
+    },
+    {
+        "id": "s2",
+        "title": "AI in Everyday Life",
+        "time": "10:15 AM - 11:00 AM",
+        "speaker": "Rahul Patel",
+        "description": "A session discussing practical applications of AI in healthcare, education, and productivity tools."
+    },
+    {
+        "id": "s3",
+        "title": "Breakout: Building Scalable Web Apps",
+        "time": "11:15 AM - 12:00 PM",
+        "speaker": "Linda Okafor",
+        "description": "Learn strategies and tools to architect web applications that can grow with your audience and data."
+    }
+]

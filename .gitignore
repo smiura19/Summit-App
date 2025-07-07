@@ -30,8 +30,12 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# local env files
+.env
+
+# Auto Generated PWA files
+**/public/sw.js
+**/public/workbox-*.js
 
 # vercel
 .vercel
