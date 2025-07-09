@@ -1,17 +1,21 @@
 [
     {
         "id": "e1",
-        "title": "AYSO",
-        "description": "soccer stuff"
+        "title": "Hawaii State Department of Health",
+        "description": "soccer stuff",
+        "level": "Platinum"
+
     },
     {
         "id": "e2",
-        "title": "Accel Health",
-        "description": "AI job matching"
+        "title": "Diagnostic Laboratory",
+        "description": "AI job matching",
+        "level": "Gold"
     },
     {
         "id": "e3",
-        "title": "Minit Health",
-        "description": "Learn strategies and tools to architect web applications that can grow with your audience and data."
+        "title": "Ohana Health Plan",
+        "description": "Learn strategies and tools to architect web applications that can grow with your audience and data.",
+        "level": "Silver"
     }
 ]

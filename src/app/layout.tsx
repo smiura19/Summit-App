@@ -47,6 +47,10 @@ export default function RootLayout({
             <span>📅</span>
             <span>Agenda</span>
           </Link>
+          <Link href="/map" className="flex flex-col items-center text-sm hover:text-gray-200">
+            <span>📅</span>
+            <span>Maps</span>
+          </Link>
           <Link href="/poster" className="flex flex-col items-center text-sm hover:text-gray-200">
             <span>🗳️</span>
             <span>Vote</span>

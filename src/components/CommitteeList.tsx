@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 
 export type Committee = {
   id: string;
-  title: string;
-  description: string;
+  name: string;
+  position: string;
+  affiliation: string;
 };
 
 export default function CommitteeList({ committees }: { committees: Committee[] }) {
@@ -18,8 +18,9 @@ export default function CommitteeList({ committees }: { committees: Committee[] 
             href={`/agenda/${committee.id}`}
             className="block p-4 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 transition"
           >
-            <h2 className="text-lg font-semibold">{committee.title}</h2>
-            <p className="text-sm text-gray-500">{committee.description}</p>
+            <h2 className="text-lg font-semibold">{committee.name}</h2>
+            <p className="text-sm text-gray-500">{committee.position}</p>
+            <p>{committee.affiliation}</p>
           </Link>
         </li>
       ))}

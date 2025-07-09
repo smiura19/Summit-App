@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 
 export type Sponsor = {
   id: string;
   title: string;
   description: string;
+  level: string;
 };
 
 export default function SponsorList({ sponsors }: { sponsors: Sponsor[] }) {

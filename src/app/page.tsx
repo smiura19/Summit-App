@@ -8,21 +8,22 @@ export default function Home() {
           Welcome to Hawai‘i Health Workforce Summit 2025!
         </h1>
       </header>
-      <div className="max-w-xl mx-auto mt-8">
-        <h3 className="text-xl font-semibold mb-4 text-[#00502f]">Featured Speakers</h3>
-        <div className="overflow-x-auto whitespace-nowrap space-x-4 flex pb-2">
-          <div className="inline-block bg-white rounded-xl shadow p-4 min-w-[280px]">
-            <h4 className="text-lg font-bold">Keynote: Health in 2030</h4>
-            <p className="text-sm text-gray-600">Dr. Lani Leong, 9:00am – Main Hall</p>
+      <ul className="space-y-4">
+        <div className="max-w-xl mx-auto mt-8">
+          <h3 className="text-xl font-semibold mb-4 text-[#00502f]">Featured Speakers</h3>
+          <div className="overflow-x-auto whitespace-nowrap space-x-4 flex pb-2">
+            <div className="inline-block bg-white rounded-xl shadow p-4 min-w-[280px]">
+              <h4 className="text-lg font-bold">Keynote: Health in 2030</h4>
+              <p className="text-sm text-gray-600">Dr. Lani Leong, 9:00am – Main Hall</p>
+            </div>
+            <div className="inline-block bg-white rounded-xl shadow p-4 min-w-[280px]">
+              <h4 className="text-lg font-bold">AI in Rural Healthcare</h4>
+              <p className="text-sm text-gray-600">Panel – 10:30am, Room 202</p>
+            </div>
+            {/* More slides... */}
           </div>
-          <div className="inline-block bg-white rounded-xl shadow p-4 min-w-[280px]">
-            <h4 className="text-lg font-bold">AI in Rural Healthcare</h4>
-            <p className="text-sm text-gray-600">Panel – 10:30am, Room 202</p>
-          </div>
-          {/* More slides... */}
         </div>
-      </div>
-
+      </ul>
       <nav className="w-full max-w-md">
         <ul className="space-y-4">
           <li>
@@ -33,6 +34,7 @@ export default function Home() {
               Agenda
             </Link>
           </li>
+         <h1 className="text-3xl font-bold mb-6">Special thanks to...</h1>
           <li>
             <Link
               href="/exhibitors"

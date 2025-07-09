@@ -1,0 +1,20 @@
+[
+    {
+        "id": "c1",
+        "name": "Aida Wen",
+        "position": "Faculty",
+        "affiliation": "JABSOM, Dpt. Geriatric Medicine"
+    },
+    {
+        "id": "c2",
+        "name": "Helen Aldred",
+        "position": "Director of Recruitment",
+        "affiliation": "Hawaii DOH, Office of Primary Care and Rural Health"
+    },
+    {
+        "id": "c3",
+        "name": "Kelley Withy",
+        "position": "AHEC Director",
+        "affiliation": "Faculty, UH JABSOM"
+    }
+]
