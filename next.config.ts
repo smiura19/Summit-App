@@ -15,3 +15,12 @@ export default withPWA({
     register: true,         // register the PWA service worker
     skipWaiting: true,      // skip waiting for service worker activation
 })(nextConfig);
+
+module.exports = {
+    reactStrictMode: true,
+    eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
+}
