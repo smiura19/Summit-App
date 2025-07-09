@@ -1,10 +1,9 @@
 import { notFound } from 'next/navigation';
-import { use } from 'react'
 import Image from 'next/image';
 import maps from '../../../../public/data/maps.json';
 
-export default function MapFull({ params }: { params: Promise<{ mapId: string }> }) {
-  const map = maps.find((m) => m.id === use(params).mapId);
+export default function MapFull({ params }: { params: { mapId: string } }) {
+  const map = maps.find((m) => m.id === params.mapId);
 
   if (!map) notFound();
 

@@ -1,11 +1,9 @@
 <<<<<<< HEAD
 import { notFound } from 'next/navigation';
-import { use } from 'react'
 import sessions from '../../../../public/data/sessions.json';
 
-export default function SessionDetail({ params }: { params:  Promise<{ sessionId: string }> }) {
-  
-  const session = sessions.find((s) => s.id === use(params).sessionId);
+export default function SessionDetail({ params }: { params: { sessionId: string } }) {
+  const session = sessions.find((s) => s.id === params.sessionId);
 
   if (!session) notFound();
 

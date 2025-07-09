@@ -1,10 +1,9 @@
 import { notFound } from 'next/navigation';
-import { use } from 'react'
 import Image from 'next/image';
 import posters from '../../../../public/data/posters.json';
 
-export default function PosterFull({ params }: { params: Promise<{ posterId: string }> }) {
-  const poster = posters.find((p) => p.id === use(params).posterId);
+export default function PosterFull({ params }: { params: { posterId: string } }) {
+  const poster = posters.find((p) => p.id === params.posterId);
 
   if (!poster) notFound();
 
