@@ -1,12 +1,18 @@
 [
   {
     "id": "m1",
-    "title": "First Floor",
-    "img": "images/pic_trulli.jpg"
+    "title": "Outside",
+    "img": "images/JABSOM_OUTSIDE.png"
   },
   {
     "id": "m2",
+    "title": "First Floor",
+    "img": "images/JABSOM_FIRSTFLOOR.png"
+  },
+  {
+    "id": "m3",
     "title": "Third Floor",
-    "img": "images/pic_trulli.jpg"
+    "img": "images/JABSOM_THIRDFLOOR.png"
   }
+
 ]

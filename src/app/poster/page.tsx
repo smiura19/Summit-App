@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { supabase } from '@/lib/client';
+import Image from 'next/image';
 
 type Poster = {
   id: string;
@@ -10,10 +11,17 @@ type Poster = {
   img: string;
 };
 
+type Ratings = {
+  scientific_merit?: number;
+  appearance?: number;
+  presentation?: number;
+};
+
 export default function PosterList() {
-  const [selectedVotes, setSelectedVotes] = useState<string[]>([]);
-  const [submitted, setSubmitted] = useState(false);
   const [posters, setPosters] = useState<Poster[]>([]);
+  const [expandedRow, setExpandedRow] = useState<string | null>(null);
+  const [ratings, setRatings] = useState<Record<string, Ratings>>({});
+  const [submitted, setSubmitted] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     fetch('/data/posters.json')
@@ -21,120 +29,157 @@ export default function PosterList() {
       .then(setPosters);
   }, []);
 
-  const toggleVote = (posterId: string) => {
-    if (selectedVotes.includes(posterId)) {
-      setSelectedVotes(selectedVotes.filter((id) => id !== posterId));
+  const toggleExpand = (posterId: string) => {
+    setExpandedRow((prev) => (prev === posterId ? null : posterId));
+  };
+
+  const handleRatingChange = (posterId: string, category: keyof Ratings, value: number) => {
+    setRatings((prev) => ({
+      ...prev,
+      [posterId]: {
+        ...prev[posterId],
+        [category]: value,
+      },
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent, posterId: string) => {
+    e.preventDefault();
+
+    const votePayload = {
+      user_email: 'anonymous@example.com',
+      user_name: 'Anonymous',
+      poster_id: posterId,
+      ...ratings[posterId],
+    };
+
+    const { data, error } = await supabase.from('votes').insert([votePayload]);
+
+    if (error) {
+      console.error('Error submitting vote:', error);
+      alert('There was a problem submitting your vote.');
     } else {
-      if (selectedVotes.length < 3) {
-        setSelectedVotes([...selectedVotes, posterId]);
-      } else {
-        alert('You can only vote for up to 3 posters.');
-      }
+      setSubmitted((prev) => ({ ...prev, [posterId]: true }));
+      alert('Vote submitted successfully!');
     }
   };
-
-const handleSubmit = async () => {
-  if (selectedVotes.length === 0) {
-    alert('Please select at least one poster to vote.');
-    return;
-  }
-
-  // Replace with actual user data if available
-  const votePayload = {
-    title: `Vote by anonymous`, // you can change to user's email if logged in
-    status: 'publish',
-    meta: {
-      vote_user_email: 'anonymous@example.com', // Replace if real user is known
-      vote_username: 'Anonymous',
-      vote_poster_ids: JSON.stringify(selectedVotes), // store poster IDs as JSON
-    },
-  };
-
-  try {
-const response = await fetch('/api/proxy-vote', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(votePayload),
-});
-
-
-
-
-    if (!response.ok) {
-      const err = await response.text();
-      throw new Error(`Failed to submit vote: ${err}`);
-    }
-
-    const result = await response.json();
-    console.log('Vote submitted successfully:', result);
-    setSubmitted(true);
-  } catch (error) {
-    console.error('Error submitting vote:', error);
-    alert('There was a problem submitting your vote. Please try again.');
-  }
-};
-
-
-  const postersByCategory: Record<string, Poster[]> = {};
-  for (const poster of posters) {
-    if (!postersByCategory[poster.category]) {
-      postersByCategory[poster.category] = [];
-    }
-    postersByCategory[poster.category].push(poster);
-  }
 
   return (
-    <main className="p-6 max-w-3xl mx-auto">
+    <main className="p-6 max-w-5xl mx-auto">
       <h1 className="text-2xl font-bold mb-6">Posters</h1>
-
-      {Object.entries(postersByCategory).map(([category, posters]) => (
-        <section key={category} className="mb-8">
-          <h2 className="text-xl font-semibold mb-2">{category}</h2>
-          <ul className="space-y-2">
-            {posters.map((poster) => {
-              const isSelected = selectedVotes.includes(poster.id);
-              return (
-                <li
-                  key={poster.id}
-                  className={`p-3 border rounded bg-gray-50 flex justify-between items-center ${
-                    isSelected ? 'bg-green-100 border-green-400' : ''
-                  }`}
-                >
-                  <Link
-                    href={`/poster/${poster.id}`}
-                    className="text-blue-600 hover:underline"
-                  >
-                    {poster.title}
-                  </Link>
+      <table className="w-full table-auto">
+        <thead>
+          <tr className="text-sm font-normal text-gray-600 border-t border-b text-left bg-gray-50">
+            <th className="px-4 py-3">Preview</th>
+            <th className="px-4 py-3">Title</th>
+            <th className="px-4 py-3">Category</th>
+            <th className="px-4 py-3"></th>
+          </tr>
+        </thead>
+        <tbody className="text-sm font-normal text-gray-700">
+          {posters.map((poster) => (
+            <>
+              <tr key={poster.id} className="cursor-pointer border-b border-gray-200 hover:bg-gray-100">
+                <td className="px-4 py-4">
+                  <div className="w-16 h-16 relative">
+                    <Image
+                      src={`/${poster.img}`}
+                      alt={poster.title}
+                      width={64}
+                      height={64}
+                      className="object-cover rounded-md"
+                    />
+                  </div>
+                </td>
+                <td className="px-4 py-4">{poster.title}</td>
+                <td className="px-4 py-4">{poster.category}</td>
+                <td className="px-4 py-4">
                   <button
-                    onClick={() => toggleVote(poster.id)}
-                    disabled={submitted}
-                    className={`ml-4 px-3 py-1 rounded ${
-                      isSelected
-                        ? 'bg-red-500 text-white'
-                        : 'bg-blue-500 text-white'
-                    }`}
+                    onClick={() => toggleExpand(poster.id)}
+                    className="text-white bg-gray-100 border rounded-lg px-4 py-2 text-center inline-flex items-center"
                   >
-                    {isSelected ? 'Unvote' : 'Vote'}
+                    <svg className="w-4 h-4 text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z" />
+                    </svg>
                   </button>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-      ))}
+                </td>
+              </tr>
 
-      <div className="mt-6 text-center">
-        <button
-          onClick={handleSubmit}
-          disabled={submitted}
-          className="bg-black text-white px-6 py-2 rounded disabled:opacity-50"
-        >
-          {submitted ? 'Votes Submitted' : 'Submit Votes'}
-        </button>
-      </div>
+              {expandedRow === poster.id && (
+                <tr>
+                  <td colSpan={4} className="px-4 py-4 bg-gray-50">
+                    <form onSubmit={(e) => handleSubmit(e, poster.id)} className="space-y-4">
+                      <h3 className="text-lg font-semibold">{poster.title}</h3>
+
+                      <div className="space-y-2">
+                        <label className="block font-medium">Scientific Merit:</label>
+                        <div className='flex justify-around'>
+                          {[1, 2, 3, 4, 5].map((val) => (
+                            <label key={`merit-${val}`} className="flex flex-col items-center text-sm">
+                              <input
+                                type="radio"
+                                name={`merit-${poster.id}`}
+                                value={val}
+                                onChange={() => handleRatingChange(poster.id, 'scientific_merit', val)}
+                                required
+                              />
+                              {val}
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="block font-medium">Appearance:</label>
+                        <div className='flex justify-around'>
+                          {[1, 2, 3, 4, 5].map((val) => (
+                            <label key={`appearance-${val}`} className="flex flex-col items-center text-sm">
+                                <input
+                                  type="radio"
+                                  name={`appearance-${poster.id}`}
+                                  value={val}
+                                  onChange={() => handleRatingChange(poster.id, 'appearance', val)}
+                                  required
+                                />
+                              {val}
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="block font-medium">Presentation Explanation:</label>
+                        <div className="flex justify-around">
+                          {[1, 2, 3, 4, 5].map((val) => (
+                            <label key={`presentation-${val}`} className="flex flex-col items-center text-sm">
+                              <input
+                                type="radio"
+                                name={`presentation-${poster.id}`}
+                                value={val}
+                                onChange={() => handleRatingChange(poster.id, 'presentation', val)}
+                                required
+                              />
+                              {val}
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+
+                      <button
+                        type="submit"
+                        className="mt-2 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+                        disabled={submitted[poster.id]}
+                      >
+                        {submitted[poster.id] ? 'Submitted' : 'Submit Vote'}
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+              )}
+            </>
+          ))}
+        </tbody>
+      </table>
     </main>
   );
 }

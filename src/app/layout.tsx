@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
+import { House, ClipboardClock, Map, Vote } from 'lucide-react';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -40,19 +41,19 @@ export default function RootLayout({
         {/* Persistent bottom nav */}
         <footer className="fixed bottom-0 left-0 right-0 bg-[#00502f] text-white flex justify-around items-center h-16 shadow-inner z-50">
           <Link href="/" className="flex flex-col items-center text-sm hover:text-gray-200">
-            <span>🏠</span>
+            <House color="white" size={20} className="mb-1" />
             <span>Home</span>
           </Link>
           <Link href="/agenda" className="flex flex-col items-center text-sm hover:text-gray-200">
-            <span>📅</span>
+            <ClipboardClock color="white" size={20} className="mb-1" />
             <span>Agenda</span>
           </Link>
           <Link href="/map" className="flex flex-col items-center text-sm hover:text-gray-200">
-            <span>📅</span>
+            <Map color="white" size={20} className="mb-1" />
             <span>Maps</span>
           </Link>
           <Link href="/poster" className="flex flex-col items-center text-sm hover:text-gray-200">
-            <span>🗳️</span>
+            <Vote color="white" size={20} className="mb-1" />
             <span>Vote</span>
           </Link>
         </footer>

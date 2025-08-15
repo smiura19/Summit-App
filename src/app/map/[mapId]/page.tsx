@@ -11,6 +11,7 @@ export default function MapFull({ params }: { params: Promise<{ mapId: string }>
   return (
     <div className="w-screen h-screen bg-black flex flex-col items-center justify-center text-white p-6">
       <div className="relative w-full max-w-4xl h-[70vh] mb-4">
+
         <Image
           src={`/${map.img}`}
           alt={map.title}
