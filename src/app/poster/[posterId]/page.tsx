@@ -16,6 +16,7 @@ export default function PosterFull({ params }: { params: Promise<{ posterId: str
           alt={poster.title}
           fill
           className="object-contain rounded-xl"
+          unoptimized
         />
       </div>
       <h1 className="text-3xl font-bold mb-2">{poster.title}</h1>

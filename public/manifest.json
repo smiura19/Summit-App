@@ -1,7 +1,7 @@
 {
-  "name": "PWA Next.js",
-  "short_name": "pwa-nextjs",
-  "theme_color": "#35155D",
+  "name": "Hawai'i Health Workforce Summit 2025",
+  "short_name": "Hawai'i Workforce Summit",
+  "theme_color": "#00502f",
   "background_color": "#ffffff",
   "display": "standalone",
   "orientation": "portrait",

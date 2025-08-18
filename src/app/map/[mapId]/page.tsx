@@ -17,6 +17,7 @@ export default function MapFull({ params }: { params: Promise<{ mapId: string }>
           alt={map.title}
           fill
           className="object-contain rounded-xl"
+          unoptimized
         />
       </div>
             <h1 className="text-3xl font-bold mb-2">{map.title}</h1>
