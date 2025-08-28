@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import ExhibitorList, { Exhibitor } from '../../components/ExhibitorList';
+import ExhibitorList, { Exhibitor } from '../../../components/ExhibitorList';
 
 export default function ExhibitorPage() {
   const [exhibitors, setExhibitors] = useState<Exhibitor[]>([]);

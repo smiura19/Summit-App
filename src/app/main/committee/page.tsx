@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import CommitteeList, { Committee } from '../../components/CommitteeList';
+import CommitteeList, { Committee } from '../../../components/CommitteeList';
 
 export default function CommitteePage() {
   const [committees, setCommittees] = useState<Committee[]>([]);

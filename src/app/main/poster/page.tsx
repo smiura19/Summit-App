@@ -65,24 +65,22 @@ export default function PosterList() {
   };
 
   return (
-    <main className="bg-gray-100 min-h-screen flex items-center justify-center px-8">
+    <main className="bg-gray-100 min-h-screen flex items-center justify-center px-2">
       <div className="items-center w-full mx-auto bg-white rounded-lg shadow-md sm:max-w-4xl">
-        <div className="mx-auto">
-          <div className="overflow-x-auto">
-            <div className="flex text-gray-700 justify-between rounded-lg p-4 bg-white w-full items-center space-x-16"></div>
+        <div className="overflow-x-auto">
+        <div className="mx-auto mt-8 max-w-screen-lg px-2">
+            <div className="flex text-gray-700 justify-between rounded-lg p-4 bg-white w-full items-center space-x-16">
               <div className="flex items-center">
                 <div className="flex font-bold text-3xl rounded-full py-4 px-4">
                   <p>Posters</p>
                 </div>
               </div>
             </div>
-          </div>
           <table className="w-full table-auto">
             <thead>
               <tr className="text-sm font-normal text-gray-600 border-t border-b text-left bg-gray-50">
                 <th className="px-4 py-3">Preview</th>
                 <th className="px-4 py-3">Title</th>
-                <th className="px-4 py-3">Category</th>
                 <th className="px-4 py-3"></th>
               </tr>
             </thead>
@@ -91,19 +89,23 @@ export default function PosterList() {
                 <>
                   <tr key={poster.id} className="cursor-pointer border-b border-gray-200 hover:bg-gray-100">
                     <td className="px-4 py-4">
-                      <div className="w-16 h-16 relative">
-                        <Image
-                          src={`/${poster.img}`}
-                          alt={poster.title}
-                          width={64}
-                          height={64}
-                          className="object-cover rounded-md"
-                          unoptimized
-                        />
-                      </div>
+                      <a href={`/main/poster/${poster.id}`}>
+                        <figure className="w-16 h-16 relative">
+                          <Image
+                            src={`/${poster.img}`}
+                            alt={poster.title}
+                            width={64}
+                            height={64}
+                            className="object-cover rounded-md"
+                            unoptimized
+                          />
+                          <figcaption className="text-xs text-center text-gray-500 dark:text-gray-500">
+                            (Click to enlarge)
+                          </figcaption>
+                        </figure>
+                      </a>
                     </td>
                     <td className="px-4 py-4">{poster.title}</td>
-                    <td className="px-4 py-4">{poster.category}</td>
                     <td className="px-4 py-4">
                       <button
                         onClick={() => toggleExpand(poster.id)}
@@ -120,7 +122,7 @@ export default function PosterList() {
                     <tr>
                       <td colSpan={4} className="px-4 py-4 bg-gray-50">
                         <form onSubmit={(e) => handleSubmit(e, poster.id)} className="space-y-4">
-                          <h3 className="text-lg font-semibold">{poster.title}</h3>
+                          <h3 className="text-sm">Category: {poster.category}</h3>
 
                           <div className="space-y-2">
                             <label className="block font-medium">Scientific Merit:</label>
@@ -191,6 +193,8 @@ export default function PosterList() {
               ))}
             </tbody>
           </table>
+        </div>
+        </div>
       </div>
     </main>
   );

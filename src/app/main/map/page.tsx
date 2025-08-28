@@ -27,7 +27,7 @@ export default function MapPage() {
       {maps.map((map) => (
         <li key={map.id}>
           <Link
-            href={`/map/${map.id}`}
+            href={`/main/map/${map.id}`}
             className="block p-4 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 transition"
           >
             <h2 className="text-lg font-semibold">{map.title}</h2>

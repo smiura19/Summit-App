@@ -30,29 +30,25 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen flex flex-col font-sans bg-white text-[#171717] dark:bg-[#0a0a0a] dark:text-[#ededed]">
-        <header className="bg-[#00502f] text-white w-full py-4 px-6 text-center shadow-md">
-          <h2 className="text-xl sm:text-2xl font-semibold">
-            Hawai‘i Health Workforce Summit 2025
-          </h2>
-        </header>
+
 
         <main className="flex-1 w-full pb-16">{children}</main>
 
         {/* Persistent bottom nav */}
-        <footer className="fixed bottom-0 left-0 right-0 bg-[#00502f] text-white flex justify-around items-center h-16 shadow-inner z-50">
+        <footer className="fixed bottom-0 left-0 right-0 bg-[#00502f] text-white flex justify-around items-center h-16 shadow-inner z-50 p-10">
           <Link href="/" className="flex flex-col items-center text-sm hover:text-gray-200">
             <House color="white" size={20} className="mb-1" />
             <span>Home</span>
           </Link>
-          <Link href="/agenda" className="flex flex-col items-center text-sm hover:text-gray-200">
+          <Link href="/main/agenda" className="flex flex-col items-center text-sm hover:text-gray-200">
             <ClipboardClock color="white" size={20} className="mb-1" />
             <span>Agenda</span>
           </Link>
-          <Link href="/map" className="flex flex-col items-center text-sm hover:text-gray-200">
+          <Link href="/main/map" className="flex flex-col items-center text-sm hover:text-gray-200">
             <Map color="white" size={20} className="mb-1" />
             <span>Maps</span>
           </Link>
-          <Link href="/poster" className="flex flex-col items-center text-sm hover:text-gray-200">
+          <Link href="/main/poster" className="flex flex-col items-center text-sm hover:text-gray-200">
             <Vote color="white" size={20} className="mb-1" />
             <span>Vote</span>
           </Link>

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { use } from 'react'
-import sessions from '../../../../public/data/sessions.json';
+import sessions from '../../../../../public/data/sessions.json';
 
 export default function SessionDetail({ params }: { params:  Promise<{ sessionId: string }> }) {
   

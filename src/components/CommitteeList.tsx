@@ -14,14 +14,13 @@ export default function CommitteeList({ committees }: { committees: Committee[] 
     <ul className="space-y-4">
       {committees.map((committee) => (
         <li key={committee.id}>
-          <Link
-            href={`/agenda/${committee.id}`}
+          <div
             className="block p-4 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 transition"
           >
             <h2 className="text-lg font-semibold">{committee.name}</h2>
             <p className="text-sm text-gray-500">{committee.position}</p>
             <p>{committee.affiliation}</p>
-          </Link>
+          </div>
         </li>
       ))}
     </ul>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import SessionList, { Session } from '../../components/SessionList';
+import SessionList, { Session } from '../../../components/SessionList';
 
 export default function AgendaPage() {
   const [sessions, setSessions] = useState<Session[]>([]);
