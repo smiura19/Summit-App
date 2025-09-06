@@ -80,13 +80,31 @@ export default function PosterList() {
       <div className="items-center w-full mx-auto bg-white rounded-lg shadow-md sm:max-w-4xl">
         <div className="overflow-x-auto">
         <div className="mx-auto mt-8 max-w-screen-lg px-2">
-            <div className="flex text-gray-700 justify-between rounded-lg p-4 bg-white w-full items-center space-x-16">
-              <div className="flex items-center">
-                <div className="flex font-bold text-3xl rounded-full py-4 px-4">
-                  <p>Posters</p>
-                </div>
-              </div>
-            </div>
+
+            <div className="rounded-lg bg-white p-6 mb-6 ">
+  <h2 className="text-2xl sm:text-3xl font-bold text-center text-[#00502f]">
+    Hawai‘i Health Summit Poster Competition
+  </h2>
+  <p className="mt-3 text-sm sm:text-base text-center text-gray-700 max-w-3xl mx-auto leading-relaxed">
+    Browse the posters below and support the presenters by submitting your feedback.  
+    To participate, click the 
+    <span className="inline-flex items-center bg-gray-100 text-gray-800 text-xs font-semibold rounded-lg px-2 py-1 mx-1 border">
+      Vote
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-3 h-3 ml-1 text-black"
+        viewBox="0 0 24 24"
+      >
+        <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z" />
+      </svg>
+    </span>
+    button next to a poster. This will open a short form where you can rate it on
+    <span className="italic"> Scientific Merit</span>, 
+    <span className="italic"> Appearance</span>, and 
+    <span className="italic"> Presentation Explanation</span>.
+  </p>
+</div>
+
           <table className="w-full table-auto">
             <thead>
               <tr className="text-sm font-normal text-gray-600 border-t border-b text-left bg-gray-50">

@@ -310,43 +310,59 @@ progress, collaboration, and the pursuit of excellence.
         </section>
 
         {/* Poster Contest */}
-        <section className="bg-white border border-gray-200 rounded-lg shadow-sm">
-          <div className="p-5">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                Poster Contest
-              </h5>
-            <h6 className="mb-3 font-normal text-gray-700">
-              Poster presentation and ratings are from:
-            </h6>
-            <li className="mb-3 font-normal text-gray-700">
-              1:30-2:00PM
-            </li>
-            <li className="mb-3 font-normal text-gray-700">
-              3:15-3:45PM
-            </li>
-            <a
-              href="/main/poster"
-              className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#00502f] rounded-lg shadow hover:bg-[#003f24] transition"
-            >
-              Participate in live voting!
-              <svg
-                className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-              </svg>
-            </a>
-          </div>
-        </section>
+        {/* Poster Contest */}
+<section className="bg-gradient-to-r from-green-700 to-green-900 text-white rounded-lg shadow-lg mb-8">
+  <div className="p-6 text-center space-y-4">
+    <h5 className="text-3xl font-bold">
+      2025 Poster Competition
+    </h5>
+    <p className="text-lg font-medium">
+      Join us in celebrating research and innovation at the Hawai‘i Health Workforce Summit!
+    </p>
+    <p className="text-sm text-green-100 max-w-xl mx-auto">
+      Poster viewings and ratings are being held in the <span className="font-semibold">Library, 1st floor</span>.
+    </p>
+
+    <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+      <div className="bg-white text-green-900 rounded-lg px-4 py-2 shadow-md">
+        <span className="block font-bold text-lg">1:30 – 2:00 PM</span>
+      </div>
+      <div className="bg-white text-green-900 rounded-lg px-4 py-2 shadow-md">
+        <span className="block font-bold text-lg">3:15 – 3:45 PM</span>
+      </div>
+    </div>
+
+    <p className="text-sm text-green-100 max-w-xl mx-auto">
+      Cast your vote for Scientific Merit, Appearance, and Presentation Explanation. 
+      Your feedback helps recognize excellence!
+    </p>
+
+    <div className="pt-4">
+      <a
+        href="/main/poster"
+        className="inline-flex items-center justify-center px-6 py-3 text-lg font-semibold bg-yellow-400 text-green-900 rounded-xl shadow hover:bg-yellow-300 transition"
+      >
+        Vote in the Poster Competition
+        <svg
+          className="rtl:rotate-180 w-4 h-4 ml-2"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 14 10"
+        >
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M1 5h12m0 0L9 1m4 4L9 9"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
 
         {/* Special Thanks */}
         <section>
