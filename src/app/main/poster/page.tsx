@@ -100,14 +100,12 @@ export default function PosterList() {
                   <tr key={poster.ID} className="cursor-pointer border-b border-gray-200 hover:bg-gray-100">
                     <td className="px-4 py-4">
                       <button onClick={() => setSelectedPoster(poster)}>
-                        <figure className="w-16 h-16 relative">
-                          <Image
+                        <figure>
+                          <img
                             src={`/${poster.IMG}`}
-                            alt={poster.TITLE}
-                            width={64}
-                            height={64}
-                            className="object-cover rounded-md"
-                            unoptimized
+                            alt={poster.ID}
+                            className="w-16 h-16 object-cover rounded-md"  
+                            loading="lazy"
                           />
                           <figcaption className="text-xs text-center text-gray-500">
                             (Click to enlarge)
