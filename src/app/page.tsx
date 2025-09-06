@@ -52,9 +52,7 @@ export default function Home() {
       .then(setSessions);
   }, []);
 
-  const featuredSessions = sessions.filter((s) =>
-    ['s1', 's2', 's3'].includes(s.id)
-  );
+
 
 
 

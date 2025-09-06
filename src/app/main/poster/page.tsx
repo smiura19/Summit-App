@@ -136,17 +136,19 @@ export default function PosterList() {
                     <tr>
                       <td colSpan={4} className="px-4 py-4 bg-gray-50">
                         <form onSubmit={(e) => handleSubmit(e, poster.ID)} className="space-y-4">
-                          <p className="text-sm text-gray-800 mb-4">{poster.PARTICIPANT}</p>
+
                           {poster.LINK && (
                               <a 
                               href={poster.LINK}  
                               target="_blank" 
                               rel="noopener noreferrer"
-                              className="text-blue-600 hover:underline break-all"
+                              className="text-blue-600 hover:underline break-all pb-8"
                               >
-                                  {poster.LINK}
+                              Click to view presentation
                               </a>
                           )}
+                          <p className="text-sm text-gray-800 mb-4">{poster.PARTICIPANT}</p>
+
                           <p className="text-sm text-gray-800 mb-4">{poster.DESCRIPTION}</p>
 
                           <div className="space-y-2">

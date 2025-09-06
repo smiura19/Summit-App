@@ -1,9 +1,11 @@
 export type Session = {
-  id: string;
-  title: string;
-  time: string;
-  speaker: string;
-  description: string;
+  TITLE: string;
+  START: string;
+  END: string;
+  SPEAKER: string;
+  TRACK: string;
+  LOCATION: string;
+  DESCRIPTION: string;
 };
 
 export type Poster = {

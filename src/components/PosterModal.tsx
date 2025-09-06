@@ -49,6 +49,7 @@ export default function PosterModal({
             alt={poster.ID}
             fill
             className="object-contain"
+            loading="lazy"
             unoptimized
             />
         </div>

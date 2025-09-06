@@ -66,14 +66,11 @@ const templates: Record<string,string> = {
       </p>
       <ul>
         <li>
-          <div className="flex items-center">
-          <Image src="/images/Ios-Share--Streamline-Outlined-Material-Symbols.png">
+          <img src="/images/Ios-Share--Streamline-Outlined-Material-Symbols.png">
           1. Tap Share
-          </div>
         </li>
         <li>
-          <img src="/src/img/install/add-to-home-screen.svg">
-          <Image src="/images/Add-Box--Streamline-Outlined-Material-Symbols.png">
+          <img src="/images/Add-Box--Streamline-Outlined-Material-Symbols.png">
           2. Swipe up and tap Add to Home Screen
         </li>
       </ul>
@@ -86,12 +83,11 @@ const templates: Record<string,string> = {
       </p>
       <ul>
         <li>
-          <Image src="/images/Ios-Share--Streamline-Outlined-Material-Symbols.png">
-          <img src="/src/img/install/ios-share.svg">
+          <img src="/images/Ios-Share--Streamline-Outlined-Material-Symbols.png">
           1. Tap Share
         </li>
         <li>
-          <img src="/src/img/install/add-to-home-screen.svg">
+          <img src="/images/Add-Box--Streamline-Outlined-Material-Symbols.png">
           2. Swipe up and tap Add to Home Screen
         </li>
       </ul>
@@ -104,10 +100,12 @@ const templates: Record<string,string> = {
       </p>
       <ul>
         <li>
+          <img src="/images/Ios-Share--Streamline-Outlined-Material-Symbols.png">
           <img src="/src/img/install/ios-share.svg">
           1. Tap Share in the address bar
         </li>
         <li>
+          <img src="/images/Add-Box--Streamline-Outlined-Material-Symbols.png">
           <img src="/src/img/install/add-to-home-screen.svg">
           2. Swipe up and tap Add to Home Screen
         </li>
@@ -121,15 +119,15 @@ const templates: Record<string,string> = {
       </p>
       <ul>
         <li>
-          <img src="/src/img/install/menu.svg">
+          <img src="/images/Density-Small--Streamline-Outlined-Material-Symbols.png">
           1. Tap menu in the bottom-right corner
         </li>
         <li>
-          <img src="/src/img/install/ios-share.svg">
+          <img src="/images/Ios-Share--Streamline-Outlined-Material-Symbols.png">
           2. Swipe up and tap Share
         </li>
         <li>
-          <img src="/src/img/install/add-to-home-screen.svg">
+          <img src="/images/Add-Box--Streamline-Outlined-Material-Symbols.png">
           3. Swipe up and tap Add to Home Screen
         </li>
       </ul>
@@ -142,16 +140,33 @@ const templates: Record<string,string> = {
       </p>
       <ul>
         <li>
-          <img src="/src/img/install/menu.svg">
+          <img src="/images/Density-Small--Streamline-Outlined-Material-Symbols.png">
           1. Tap menu in the bottom-right corner
         </li>
         <li>
-          <img src="/src/img/install/ios-share.svg">
+          <img src="/images/Ios-Share--Streamline-Outlined-Material-Symbols.png">
           2. Swipe up and tap Share
         </li>
         <li>
-          <img src="/src/img/install/add-to-home-screen.svg">
+          <img src="/images/Add-Box--Streamline-Outlined-Material-Symbols.png">
           3. Swipe up and tap Add to Home Screen
+        </li>
+      </ul>
+    </div>
+  `,
+    'android-chrome': `
+    <div className="body">
+      <p>
+        To install the app from Edge on Android:
+      </p>
+      <ul>
+        <li>
+          <img src="/images/Density-Small--Streamline-Outlined-Material-Symbols.png">
+          1. Tap menu in the bottom-right corner
+        </li>
+        <li>
+          <img src="/src/img/install/add-to-phone.svg">
+          2. Swipe left and tap Add to Phone
         </li>
       </ul>
     </div>
@@ -163,7 +178,7 @@ const templates: Record<string,string> = {
       </p>
       <ul>
         <li>
-          <img src="/src/img/install/menu.svg">
+          <img src="/images/Density-Small--Streamline-Outlined-Material-Symbols.png">
           1. Tap menu in the bottom-right corner
         </li>
         <li>
@@ -197,7 +212,7 @@ const templates: Record<string,string> = {
       </p>
       <ul>
         <li>
-          <img src="/src/img/install/ios-share.svg">
+          <img src="/images/Ios-Share--Streamline-Outlined-Material-Symbols.png"
           1. Click Share
         </li>
         <li>
@@ -261,8 +276,6 @@ export default function InstallModal({
       maxWidth: '500px',
       borderRadius: '10px'
     }}>
-      <h2>Test Modal</h2>
-      
       <div
         className="modal-body mt-4 p-3 border rounded bg-gray-50"
         dangerouslySetInnerHTML={{ __html: installHTML }}
