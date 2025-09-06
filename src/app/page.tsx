@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { UsersRound } from 'lucide-react';
 import InstallModal from '../components/InstallModal';
 import { Session } from '../components/types';
-import SessionDetailsModal from '../components/SessionDetailsModal';
 
 
 export default function Home() {
@@ -115,7 +114,7 @@ progress, collaboration, and the pursuit of excellence.
                   {isStandalone ? 'Thanks for installing the app!' : 'Install the app'}
                 </button>
                 {isOpen && (
-                  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
+                  <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-40 z-50">
                     <InstallModal onClose={() => setIsOpen(false)} />
                   </div>
                 )}
@@ -391,14 +390,6 @@ progress, collaboration, and the pursuit of excellence.
       </div>
       </div>
       </div>
-      {selectedSession && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-40 pt-20">
-          <SessionDetailsModal
-            session={selectedSession}
-            onClose={() => setSelectedSession(null)}
-          />
-        </div>
-      )}
     </main>
   );
 }

@@ -102,7 +102,7 @@ export default function PosterList() {
                       <button onClick={() => setSelectedPoster(poster)}>
                         <figure>
                           <img
-                            src={`/${poster.IMG}`}
+                            src={`/${poster.THUMB_IMG}`}
                             alt={poster.ID}
                             className="w-16 h-16 object-cover rounded-md"  
                             loading="lazy"

@@ -15,7 +15,7 @@ export type Poster = {
   DESCRIPTION: string;
   LINK: string;
   IMG: string;
-
+  THUMB_IMG: string;
 };
 
 export type Ratings = {
