@@ -21,6 +21,7 @@ export default function PosterList() {
   const [expandedRow, setExpandedRow] = useState<string | null>(null);
   const [ratings, setRatings] = useState<Record<string, Ratings>>({});
   const [submitted, setSubmitted] = useState<Record<string, boolean>>({});
+  const [expandedDescriptions, setExpandedDescriptions] = useState<Record<string, boolean>>({});
 
 
   useEffect(() => {
@@ -149,7 +150,24 @@ export default function PosterList() {
                           )}
                           <p className="text-sm text-gray-800 mb-4">{poster.PARTICIPANT}</p>
 
-                          <p className="text-sm text-gray-800 mb-4">{poster.DESCRIPTION}</p>
+                          <div className="mb-4">
+                            <p className="text-sm text-gray-800">
+                              {expandedDescriptions[poster.ID] 
+                                ? poster.DESCRIPTION
+                                : poster.DESCRIPTION.slice(0, 150) + (poster.DESCRIPTION.length > 150 ? '...' : '')}
+                            </p>
+                            {poster.DESCRIPTION.length > 150 && (
+                              <button
+                                onClick={() => setExpandedDescriptions(prev => ({
+                                  ...prev,
+                                  [poster.ID]: !prev[poster.ID]
+                                }))}
+                                className="text-gray-700 hover:text-gray-800 text-sm mt-1 focus:outline-none"
+                              >
+                                {expandedDescriptions[poster.ID] ? 'Read Less' : 'Read More'}
+                              </button>
+                            )}
+                          </div>
 
                           <div className="space-y-2">
                             <label className="block font-medium">Scientific Merit:</label>
