@@ -143,15 +143,15 @@ export default function PosterList() {
                               href={poster.LINK}  
                               target="_blank" 
                               rel="noopener noreferrer"
-                              className="text-blue-600 hover:underline break-all pb-8"
+                              className="text-blue-600 font-semibold hover:underline break-all pb-8"
                               >
                               Click to view presentation
                               </a>
                           )}
-                          <p className="text-sm text-gray-800 mb-4">{poster.PARTICIPANT}</p>
+                          <p className="text-sm text-gray-800 mb-4 whitespace-pre-line">Participant(s): {poster.PARTICIPANT}</p>
 
                           <div className="mb-4">
-                            <p className="text-sm text-gray-800">
+                            <p className="text-sm text-gray-800 whitespace-pre-line">
                               {expandedDescriptions[poster.ID] 
                                 ? poster.DESCRIPTION
                                 : poster.DESCRIPTION.slice(0, 150) + (poster.DESCRIPTION.length > 150 ? '...' : '')}
@@ -162,7 +162,7 @@ export default function PosterList() {
                                   ...prev,
                                   [poster.ID]: !prev[poster.ID]
                                 }))}
-                                className="text-gray-700 hover:text-gray-800 text-sm mt-1 focus:outline-none"
+                                className="text-gray-700 hover:text-gray-500 text-sm mt-1 underline focus:outline-none"
                               >
                                 {expandedDescriptions[poster.ID] ? 'Read Less' : 'Read More'}
                               </button>
