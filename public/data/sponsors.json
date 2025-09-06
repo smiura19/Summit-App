@@ -1,21 +1,72 @@
 [
-    {
-        "id": "e1",
-        "title": "Hawaii State Department of Health",
-        "description": "soccer stuff",
-        "level": "Platinum"
-
-    },
-    {
-        "id": "e2",
-        "title": "Diagnostic Laboratory",
-        "description": "AI job matching",
-        "level": "Gold"
-    },
-    {
-        "id": "e3",
-        "title": "Ohana Health Plan",
-        "description": "Learn strategies and tools to architect web applications that can grow with your audience and data.",
-        "level": "Silver"
-    }
+  {
+    "ID": "s1",
+    "TITLE": "Papa Ola Lokahi",
+    "LEVEL": "Plumeria - $5,000"
+  },
+  {
+    "ID": "s2",
+    "TITLE": "AlohaCare",
+    "LEVEL": "Plumeria - $5,000"
+  },
+  {
+    "ID": "s3",
+    "TITLE": "Hawaii Public Health Collaboration",
+    "LEVEL": "Ilima - $25,000"
+  },
+  {
+    "ID": "s4",
+    "TITLE": "DOH - Family Health Services, AMHD, CAMHD",
+    "LEVEL": ""
+  },
+  {
+    "ID": "s5",
+    "TITLE": "HSRHA",
+    "LEVEL": "Ilima - $25,000"
+  },
+  {
+    "ID": "s6",
+    "TITLE": "WestPac Wealth Partners",
+    "LEVEL": "Plumeria - $5,000"
+  },
+  {
+    "ID": "s7",
+    "TITLE": "Hawaiʻi Substance Use Professional Development SUPD",
+    "LEVEL": "Ilima - $25,000"
+  },
+  {
+    "ID": "s8",
+    "TITLE": "Department of Geriatric Medicine, Geriatrics Workforce Enhancement Program (GWEP, HRSA grant) and Hawaii Medical Foundation (a nonprofit subsidiary of the Hawaii Medical Association)",
+    "LEVEL": "Gardenia - $10,000"
+  },
+  {
+    "ID": "s9",
+    "TITLE": "Central Pacific Bank",
+    "LEVEL": "Plumeria - $5,000"
+  },
+  {
+    "ID": "s10",
+    "TITLE": "Hawaii Medical Foundation",
+    "LEVEL": "Gardenia - $10,000"
+  },
+  {
+    "ID": "s11",
+    "TITLE": "Hawaii Medical Association",
+    "LEVEL": "Plumeria - $5,000"
+  },
+  {
+    "ID": "s12",
+    "TITLE": "CAMHD",
+    "LEVEL": "Ilima - $25,000"
+  },
+  {
+    "ID": "s13",
+    "TITLE": "UH Manoa Department of Social Work",
+    "LEVEL": "Ilima - $25,000"
+  },
+  {
+    "ID": "s14",
+    "TITLE": "Adult Mental Health Division",
+    "LEVEL": "Ilima - $25,000"
+  }
 ]

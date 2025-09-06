@@ -1,13 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 
 type Sponsor = {
-  id: string;
-  title: string;
-  description: string;
-  level: string;
+  ID: string;
+  TITLE: string;
+  LEVEL: string;
 };
 
 export default function SponsorPage() {
@@ -21,10 +19,10 @@ export default function SponsorPage() {
 
   const sponsorsByLevel: Record<string, Sponsor[]> = {};
   for (const sponsor of sponsors) {
-    if (!sponsorsByLevel[sponsor.level]) {
-      sponsorsByLevel[sponsor.level] = [];
+    if (!sponsorsByLevel[sponsor.LEVEL]) {
+      sponsorsByLevel[sponsor.LEVEL] = [];
     }
-    sponsorsByLevel[sponsor.level].push(sponsor);
+    sponsorsByLevel[sponsor.LEVEL].push(sponsor);
   }
 
   return (
@@ -37,12 +35,11 @@ export default function SponsorPage() {
           <ul className="space-y-2">
             {sponsors.map((sponsor) => {
               return (
-                <li key={sponsor.id}>
+                <li key={sponsor.ID}>
                   <div
                     className="block p-4 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 transition"
                   >
-                    <h2 className="text-lg font-semibold">{sponsor.title}</h2>
-                    <p className="text-sm text-gray-500">{sponsor.description}</p>
+                    <h2 className="text-lg font-semibold">{sponsor.TITLE}</h2>
                   </div>
                 </li>
               );

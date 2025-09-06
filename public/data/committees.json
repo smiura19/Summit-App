@@ -1,20 +1,106 @@
 [
-    {
-        "id": "c1",
-        "name": "Aida Wen",
-        "position": "Faculty",
-        "affiliation": "JABSOM, Dpt. Geriatric Medicine"
-    },
-    {
-        "id": "c2",
-        "name": "Helen Aldred",
-        "position": "Director of Recruitment",
-        "affiliation": "Hawaii DOH, Office of Primary Care and Rural Health"
-    },
-    {
-        "id": "c3",
-        "name": "Kelley Withy",
-        "position": "AHEC Director",
-        "affiliation": "Faculty, UH JABSOM"
-    }
+ {
+   "ID": "c1",
+   "TITLE": "Kelley Withy MD, PhD"
+ },
+ {
+   "ID": "c2",
+   "TITLE": "Angela Bolan, MAET, CSAC, CCS, ICADC"
+ },
+ {
+   "ID": "c3",
+   "TITLE": "Katherine Finn Davis, PhD, RN, APRN, CPNP-PC, FAAN"
+ },
+ {
+   "ID": "c4",
+   "TITLE": "Kamal Masaki, MD"
+ },
+ {
+   "ID": "c5",
+   "TITLE": "Lisa Rantz"
+ },
+ {
+   "ID": "c6",
+   "TITLE": "Laura Reichhardt, MS, APRN, AGPCNP-BC, FAAN"
+ },
+ {
+   "ID": "c7",
+   "TITLE": "Kenneth Robbins, MD"
+ },
+ {
+   "ID": "c8",
+   "TITLE": "Nadine Tenn Salle, MD"
+ },
+ {
+   "ID": "c9",
+   "TITLE": "Jane Uyehara-Lock, MD, MS"
+ },
+ {
+   "ID": "c10",
+   "TITLE": "Aida Wen, MD"
+ },
+ {
+   "ID": "c11",
+   "TITLE": "Miquela Ibrao, PhD, MSW, MPH"
+ },
+ {
+   "ID": "c12",
+   "TITLE": "Robin Arndt, DSW, MSW, LSW"
+ },
+ {
+   "ID": "c13",
+   "TITLE": "Lisa Kaanoi, MPH"
+ },
+ {
+   "ID": "c14",
+   "TITLE": "Clifford Bersamira, PhD, AM"
+ },
+ {
+   "ID": "c15",
+   "TITLE": "Renzymeir Baloran, MPH"
+ },
+ {
+   "ID": "c16",
+   "TITLE": "Maisha Amare-Herrera, LSW"
+ },
+ {
+   "ID": "c17",
+   "TITLE": "Robin E. S. Miyamoto, Psy.D"
+ },
+ {
+   "ID": "c18",
+   "TITLE": "Carolyn Weygan-Hildebrand, MA"
+ },
+ {
+   "ID": "c19",
+   "TITLE": "Michelle Park, MSW"
+ },
+ {
+   "ID": "c20",
+   "TITLE": "Valerie Rose, MPH, RDN"
+ },
+ {
+   "ID": "c21",
+   "TITLE": "Greg Kishaba, BS"
+ },
+ {
+   "ID": "c22",
+   "TITLE": "Lisa Espero, CHW"
+ },
+ {
+   "ID": "c23",
+   "TITLE": "Summer Mochida-Meek, MPH"
+ },
+ {
+   "ID": "c24",
+   "TITLE": "Jana Ortiz-Misiaszek"
+ },
+ {
+   "ID": "c25",
+   "TITLE": "Roy Goo, PharmD"
+ },
+ {
+   "ID": "c26",
+   "TITLE": "Tetine Sentell, PhD"
+ }
 ]

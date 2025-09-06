@@ -3,25 +3,25 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/client';
 import Image from 'next/image';
+import { Poster } from '../../../components/types';
+import PosterModal from '../../../components/PosterModal';
 
-type Poster = {
-  id: string;
-  title: string;
-  category: string;
-  img: string;
-};
+
 
 type Ratings = {
   scientific_merit?: number;
   appearance?: number;
   presentation?: number;
+  comments?: string;
 };
 
 export default function PosterList() {
   const [posters, setPosters] = useState<Poster[]>([]);
+  const [selectedPoster, setSelectedPoster] = useState<Poster | null>(null);
   const [expandedRow, setExpandedRow] = useState<string | null>(null);
   const [ratings, setRatings] = useState<Record<string, Ratings>>({});
   const [submitted, setSubmitted] = useState<Record<string, boolean>>({});
+
 
   useEffect(() => {
     fetch('/data/posters.json')
@@ -41,6 +41,16 @@ export default function PosterList() {
         [category]: value,
       },
     }));
+  };
+
+  const handleCommentChange = (posterId: string, value: string) => {
+  setRatings((prev) => ({
+    ...prev,
+    [posterId]: {
+      ...prev[posterId],
+      comments: value,
+    },
+  }));
   };
 
   const handleSubmit = async (e: React.FormEvent, posterId: string) => {
@@ -87,42 +97,59 @@ export default function PosterList() {
             <tbody className="text-sm font-normal text-gray-700">
               {posters.map((poster) => (
                 <>
-                  <tr key={poster.id} className="cursor-pointer border-b border-gray-200 hover:bg-gray-100">
+                  <tr key={poster.ID} className="cursor-pointer border-b border-gray-200 hover:bg-gray-100">
                     <td className="px-4 py-4">
-                      <a href={`/main/poster/${poster.id}`}>
+                      <button onClick={() => setSelectedPoster(poster)}>
                         <figure className="w-16 h-16 relative">
                           <Image
-                            src={`/${poster.img}`}
-                            alt={poster.title}
+                            src={`/${poster.IMG}`}
+                            alt={poster.TITLE}
                             width={64}
                             height={64}
                             className="object-cover rounded-md"
                             unoptimized
                           />
-                          <figcaption className="text-xs text-center text-gray-500 dark:text-gray-500">
+                          <figcaption className="text-xs text-center text-gray-500">
                             (Click to enlarge)
                           </figcaption>
                         </figure>
-                      </a>
+                      </button>
                     </td>
-                    <td className="px-4 py-4">{poster.title}</td>
+                    <td className="px-4 py-4">{poster.TITLE}</td>
                     <td className="px-4 py-4">
                       <button
-                        onClick={() => toggleExpand(poster.id)}
-                        className="text-white bg-gray-100 border rounded-lg px-4 py-2 text-center inline-flex items-center"
+                        onClick={() => toggleExpand(poster.ID)}
+                        className={submitted[poster.ID] ? "text-white bg-gray-300 border rounded-lg px-4 py-2 text-center inline-flex items-center" : "text-white bg-gray-100 border rounded-lg px-4 py-2 text-center inline-flex items-center"}
+                        disabled={submitted[poster.ID]}
                       >
-                        <svg className="w-4 h-4 text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                          <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z" />
-                        </svg>
+                        <span className="text-sm font-semibold text-gray-800">
+                          {submitted[poster.ID] ? 'Voted' : 'Vote'}
+                        </span>
+                        <div className={submitted[poster.ID] ? "hidden" : "w-4 h-4 text-black"}>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z" />
+                          </svg>
+                        </div>
                       </button>
                     </td>
                   </tr>
 
-                  {expandedRow === poster.id && (
+                  {expandedRow === poster.ID && (
                     <tr>
                       <td colSpan={4} className="px-4 py-4 bg-gray-50">
-                        <form onSubmit={(e) => handleSubmit(e, poster.id)} className="space-y-4">
-                          <h3 className="text-sm">Category: {poster.category}</h3>
+                        <form onSubmit={(e) => handleSubmit(e, poster.ID)} className="space-y-4">
+                          <p className="text-sm text-gray-800 mb-4">{poster.PARTICIPANT}</p>
+                          {poster.LINK && (
+                              <a 
+                              href={poster.LINK}  
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="text-blue-600 hover:underline break-all"
+                              >
+                                  {poster.LINK}
+                              </a>
+                          )}
+                          <p className="text-sm text-gray-800 mb-4">{poster.DESCRIPTION}</p>
 
                           <div className="space-y-2">
                             <label className="block font-medium">Scientific Merit:</label>
@@ -131,9 +158,9 @@ export default function PosterList() {
                                 <label key={`merit-${val}`} className="flex flex-col items-center text-sm">
                                   <input
                                     type="radio"
-                                    name={`merit-${poster.id}`}
+                                    name={`merit-${poster.ID}`}
                                     value={val}
-                                    onChange={() => handleRatingChange(poster.id, 'scientific_merit', val)}
+                                    onChange={() => handleRatingChange(poster.ID, 'scientific_merit', val)}
                                     required
                                   />
                                   {val}
@@ -149,9 +176,9 @@ export default function PosterList() {
                                 <label key={`appearance-${val}`} className="flex flex-col items-center text-sm">
                                     <input
                                       type="radio"
-                                      name={`appearance-${poster.id}`}
+                                      name={`appearance-${poster.ID}`}
                                       value={val}
-                                      onChange={() => handleRatingChange(poster.id, 'appearance', val)}
+                                      onChange={() => handleRatingChange(poster.ID, 'appearance', val)}
                                       required
                                     />
                                   {val}
@@ -167,9 +194,9 @@ export default function PosterList() {
                                 <label key={`presentation-${val}`} className="flex flex-col items-center text-sm">
                                   <input
                                     type="radio"
-                                    name={`presentation-${poster.id}`}
+                                    name={`presentation-${poster.ID}`}
                                     value={val}
-                                    onChange={() => handleRatingChange(poster.id, 'presentation', val)}
+                                    onChange={() => handleRatingChange(poster.ID, 'presentation', val)}
                                     required
                                   />
                                   {val}
@@ -178,12 +205,24 @@ export default function PosterList() {
                             </div>
                           </div>
 
+                          <div className="space-y-2">
+                            <label className="block font-medium">Additional Comments (max 250 characters):</label>
+                            <textarea
+                              name={`comments-${poster.ID}`}
+                              maxLength={250}
+                              className="w-full border rounded p-2 text-sm"
+                              onChange={(e) => handleCommentChange(poster.ID, e.target.value)}
+                              placeholder="Enter your comments here..."
+                            />
+                          </div>
+
+
                           <button
                             type="submit"
                             className="mt-2 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-                            disabled={submitted[poster.id]}
+                            disabled={submitted[poster.ID]}
                           >
-                            {submitted[poster.id] ? 'Submitted' : 'Submit Vote'}
+                            {submitted[poster.ID] ? 'Submitted' : 'Submit Vote'}
                           </button>
                         </form>
                       </td>
@@ -196,6 +235,11 @@ export default function PosterList() {
         </div>
         </div>
       </div>
+      {selectedPoster && (
+        <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-40 z-80">
+          <PosterModal poster={selectedPoster} onClose={() => setSelectedPoster(null)} />
+        </div>
+      )}
     </main>
   );
 }

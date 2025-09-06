@@ -29,13 +29,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="min-h-screen flex flex-col font-sans bg-white text-[#171717] dark:bg-[#0a0a0a] dark:text-[#ededed]">
+      <body className="min-h-screen flex flex-col font-sans bg-white text-[#171717]">
 
 
         <main className="flex-1 w-full pb-16">{children}</main>
 
         {/* Persistent bottom nav */}
-        <footer className="fixed bottom-0 left-0 right-0 bg-[#00502f] text-white flex justify-around items-center h-16 shadow-inner z-50 p-10">
+        <footer className="fixed bottom-0 left-0 right-0 bg-[#00502f] text-white flex justify-around items-center h-18 shadow-inner z-50">
           <Link href="/" className="flex flex-col items-center text-sm hover:text-gray-200">
             <House color="white" size={20} className="mb-1" />
             <span>Home</span>
