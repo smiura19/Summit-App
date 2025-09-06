@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
   ],
   icons: [
-    { rel: "icon", url: "icons/jabsom-favicon.png" },
-    { rel: "apple-touch-icon", url: "icons/jabsom-favicon.png" },
+    { rel: "icon", url: "/icons/jabsom-favicon.png" },
+    { rel: "apple-touch-icon", url: "/icons/jabsom-favicon.png" },
   ],
 };
 
