@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { supabase } from '@/lib/client';
 import Image from 'next/image';
 import { Poster } from '../../../components/types';
@@ -96,8 +96,8 @@ export default function PosterList() {
             </thead>
             <tbody className="text-sm font-normal text-gray-700">
               {posters.map((poster) => (
-                <>
-                  <tr key={poster.ID} className="cursor-pointer border-b border-gray-200 hover:bg-gray-100">
+                <React.Fragment key={poster.ID}>
+                  <tr className="cursor-pointer border-b border-gray-200 hover:bg-gray-100">
                     <td className="px-4 py-4">
                       <button onClick={() => setSelectedPoster(poster)}>
                         <figure>
@@ -228,7 +228,7 @@ export default function PosterList() {
                       </td>
                     </tr>
                   )}
-                </>
+                </React.Fragment>
               ))}
             </tbody>
           </table>

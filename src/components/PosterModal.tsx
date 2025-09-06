@@ -44,13 +44,11 @@ export default function PosterModal({
             </button>
         </div>
         <div className="relative w-full max-w-4xl h-[70vh] mb-4">
-            <Image
+            <img
             src={`/${poster.IMG}`}
             alt={poster.ID}
-            fill
-            className="object-contain"
+            className="max-w-full max-h-[80vh] object-contain"
             loading="lazy"
-            unoptimized
             />
         </div>
     </div>
